@@ -65,13 +65,7 @@ const personTwo = {
     hobby: 'stalking',
 };
 
-console.log(personOne==personTwo);
-console.log(personOne===personTwo);
-
-const personThree = personTwo;
-
-console.log(personThree==personTwo);
-console.log(personThree===personTwo);
+console.log(JSON.stringify(personOne) === JSON.stringify(personTwo));
 
 // 5
 
