@@ -7,7 +7,7 @@ const askNumberTwo = +prompt('Your second number:');
 const askNumberThree = +prompt('Your third number:');
 
 
-let answerArithmeticAverage = Math.round((askNumberOne + askNumberTwo + askNumberThree) / 3);
+const answerArithmeticAverage = Math.round((askNumberOne + askNumberTwo + askNumberThree) / 3);
 
 alert(`WOW! You catch ${answerArithmeticAverage} snowflakes!`);
 
