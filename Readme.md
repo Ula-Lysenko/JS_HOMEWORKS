@@ -13,7 +13,7 @@ if(numOrStr === null) {
 
 console.log('ви скасували');
 
-} else if( numOrStr.trim() === '' ) {
+} else if( numOrStr.trim() === '') {
 
 console.log('Empty String');
 

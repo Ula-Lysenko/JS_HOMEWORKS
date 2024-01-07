@@ -1,18 +1,18 @@
 'use strict';
 
-let numOrStr = prompt("Input number or string");
+const numOrStr = prompt('Enter number or string:');
 console.log(numOrStr);
 
 switch (true) {
     case numOrStr === null:
-        console.log("Ви скасували");
+        alert('Canceled!');
         break;
-    case numOrStr === "":
-        console.log("Empty String");
+    case numOrStr === '':
+        alert('Empty string!');
         break;
     case isNaN(+numOrStr):
-        console.log("Number is Ba_NaN");
+        alert('Number is Ba_NaN!');
         break;
     default:
-        console.log("OK");
+        alert(`Ok!`);
 }
