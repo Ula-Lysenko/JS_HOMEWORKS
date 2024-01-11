@@ -9,6 +9,16 @@ console.log(result);
 
 
 // 2
+const userNumber = +prompt('Your Integer Number?');
+console.log(typeof userNumber);
+
+const posOrNeg = userNumber > 0 ? `your Number: ${userNumber} is positive` : `your Number: ${userNumber} is negative`;
+
+const numToStr = userNumber.toString();
+console.log(typeof numToStr);
+
+alert(`length of your Number: ${numToStr.length} characters \n
+${posOrNeg}`);
 
 
 // 3
@@ -30,3 +40,14 @@ if ((numberOne > numberTwo) && (numberOne > numberThree)) {
 
 
 // 4
+const lengthOne = +prompt('The first side:');
+
+const lengthTwo = +prompt('The second side:');
+
+const lengthThree = +prompt('The third side:');
+
+if (lengthOne + lengthTwo <= lengthThree || lengthOne + lengthThree <= lengthTwo || lengthTwo + lengthThree <= lengthOne) {
+    alert('No! Try again!');
+} else {
+    alert('Yes! This is a triangle!');
+}
