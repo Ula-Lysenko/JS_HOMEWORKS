@@ -2,7 +2,7 @@
 
 // 1
 for (let i = 20; i <= 30; i = i + 0.5) {
-    document.write(i + ' ');
+    console.log(i);
 }
 
 
@@ -31,9 +31,9 @@ for (let i = 2; i <= Math.sqrt(askNumber); i++) {
     if (askNumber % i === 0) {
         console.log('not prime');
         break;
-    } else {
-        console.log('prime');
     }
+    console.log('prime');
+
 }
 
 
