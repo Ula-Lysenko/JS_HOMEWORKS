@@ -14,4 +14,5 @@ const getNumRandomUniq = function () {
     return arrRandom[numRandom];
 }
 
+
 console.log(getNumRandomUniq());
