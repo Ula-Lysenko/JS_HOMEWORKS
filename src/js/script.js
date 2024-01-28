@@ -1,47 +1,56 @@
-const createCandidate = function (name, skill1, skill2, skill3, skill4) {
-  const candidate = {
+const listOfSkills = ["HTML", "SCSS", "English", "GIT", "JS", "Gulp"];
+// console.log(listOfSkills);
+const listOfRequires = ["HTML", "SCSS", "JS", "English"];
+// console.log(listOfRequires);
+
+const createCandidate = function (name, skills) {
+  return {
     name,
-    listOfSkills: {
-      skill1,
-      skill2,
-      skill3,
-      skill4,
-    },
+    skills,
   };
-  return candidate;
 };
 
-const candidateProfile = createCandidate(
-  "Nikolia",
-  "languages",
-  "bootstrap",
-  "GIT",
-  "JS",
-);
-console.log(candidateProfile);
+const candidateProfile = createCandidate("Nikolia", listOfSkills);
+const candidateProfile2 = createCandidate("Gretta", listOfSkills);
+const candidateProfile3 = createCandidate("Den", listOfSkills);
+const listOfCandidates = [
+  candidateProfile,
+  candidateProfile2,
+  candidateProfile3,
+];
 
-const addRequire = function (require1, require2, require3, require4) {
-  const requires = {
-    require1,
-    require2,
-    require3,
-  };
-  requires.require4 = require4;
-  return requires;
+const addRequire = function (skill, requires) {
+  requires.push(skill);
 };
 
-const candidateRequires = addRequire("languages", "bootstrap", "GIT", "JS");
-console.log(candidateRequires);
+addRequire("GIT", listOfRequires);
+// console.log(listOfRequires);
 
-const conductInterview = function (profile, requires) {
-  // const keys1 = Object.keys(profile.listOfSkills);
-  // console.log(keys1);
-  // const keys2 = Object.keys(requires);
-  // console.log(keys2);
-  for (const key of profile.listOfSkills) {
-    if (profile.listOfSkills[key] === requires[key]) return true;
+const checkRequires = function (profile, requires) {
+  for (const value1 of requires) {
+    let found = 0;
+    for (const value2 of profile.skills) {
+      if (value1 === value2) {
+        found = 100;
+        break;
+      }
+    }
+    if (!found) return 0;
   }
-  return false;
+  return 100;
 };
 
-console.log(conductInterview(candidateProfile, candidateRequires));
+// console.log(checkRequires(candidateProfile, listOfRequires));
+
+const planInterview = function (candidates, req, scoreFunc) {
+  const resultInterview = [];
+  for (let i = 0; i < listOfCandidates.length; i += 1) {
+    resultInterview.push({
+      score: scoreFunc(listOfCandidates[i], req),
+      candidate: listOfCandidates[i],
+    });
+  }
+  return resultInterview;
+};
+
+console.log(planInterview(listOfCandidates, listOfRequires, checkRequires));
