@@ -1,16 +1,19 @@
 /* eslint-disable */
+// відключила eslint, бо виправляв на стрілкові функції, я поки хочу базово подивитись, як виглядає/працює
 
 // indexOf
-const typeOfGrape = [
+const typesOfGrape = [
   "Torrontes",
   "Trebbiano",
   "Grillo",
   "Chenin Blanc",
   "Malbec",
+  "Torrontes",
   "Pinotage",
 ];
 
-// console.log(typeOfGrape.indexOf("Malbec"));
+console.log(typesOfGrape.indexOf("Malbec"));
+console.log(typesOfGrape.indexOf("Torrontes"));
 
 const indexOfGrape = function (item, arr) {
   for (let i = 0; i < arr.length; i += 1) {
@@ -18,24 +21,14 @@ const indexOfGrape = function (item, arr) {
   }
   return -1;
 };
-//
-// console.log(indexOfGrape("Malbec", typeOfGrape));
-// console.log(indexOfGrape("Grillo", typeOfGrape));
-// console.log(indexOfGrape("Pinot Noir", typeOfGrape));
-// console.log(indexOfGrape("pinotage", typeOfGrape)); // регістрозалежність
+
+console.log(indexOfGrape("Malbec", typesOfGrape));
+console.log(indexOfGrape("Grillo", typesOfGrape));
+console.log(indexOfGrape("Pinot Noir", typesOfGrape));
+console.log(indexOfGrape("pinotage", typesOfGrape)); // регістрозалежність
 
 // lastIndexOf
-const typeOfGrape2 = [
-  "Torrontes",
-  "Trebbiano",
-  "Grillo",
-  "Chenin Blanc",
-  "Malbec",
-  "Torrontes",
-  "Pinotage",
-];
-
-// console.log(typeOfGrape2.lastIndexOf("Torrontes"));
+console.log(typesOfGrape.lastIndexOf("Torrontes"));
 
 const lastIndexOfGrape = function (item, arr) {
   for (let i = arr.length - 1; i > 0; i -= 1) {
@@ -44,22 +37,13 @@ const lastIndexOfGrape = function (item, arr) {
   return -1;
 };
 
-// console.log(lastIndexOfGrape("Torrontes", typeOfGrape2));
-// console.log(lastIndexOfGrape("Malbec", typeOfGrape2));
-// console.log(lastIndexOfGrape("Grillo", typeOfGrape2));
-// console.log(lastIndexOfGrape("Pinot Noir", typeOfGrape2));
+console.log(lastIndexOfGrape("Torrontes", typesOfGrape));
+console.log(lastIndexOfGrape("Malbec", typesOfGrape));
+console.log(lastIndexOfGrape("Grillo", typesOfGrape));
+console.log(lastIndexOfGrape("Pinot Noir", typesOfGrape));
 
 // includes
-const typeOfGrape3 = [
-  "Torrontes",
-  "Trebbiano",
-  "Grillo",
-  "Chenin Blanc",
-  "Malbec",
-  "Pinotage",
-];
-
-// console.log(typeOfGrape3.includes("Pinotage"));
+console.log(typesOfGrape.includes("Pinotage"));
 
 const includesOfGrape = function (item, arr) {
   for (let i = 0; i < arr.length; i += 1) {
@@ -68,27 +52,26 @@ const includesOfGrape = function (item, arr) {
   return false;
 };
 
-// console.log(includesOfGrape("Pino", typeOfGrape3));
-// console.log(includesOfGrape("Pinotage", typeOfGrape3));
+console.log(includesOfGrape("Pino", typesOfGrape));
+console.log(includesOfGrape("Pinotage", typesOfGrape));
+console.log(includesOfGrape("grillo", typesOfGrape));
 
 // find
-const typeOfGrape4 = [
-  "Torrontes",
-  "Trebbiano",
-  "Grillo",
-  "Chenin Blanc",
-  "Malbec",
-  "Pinotage",
+const filmsOfTarantino = [
+  { film: "Kill Bill. Vol. 1", year: 2003 },
+  { film: "Kill Bill. Vol. 2", year: 2004 },
+  { film: "Django Unchained", year: 2012 },
 ];
 
-const findTypeOfGrape = typeOfGrape4.find(function (item) {
-  return item === "Trebbiano";
-  // return item === "Pinot Noir";
+const findFilmsOfTarantino = filmsOfTarantino.find(function (item) {
+  // return item.year === 2012;
+  return item.year > 2003 && item.year < 2012;
+  // return item.year === 2019;
 });
 
-console.log(findTypeOfGrape);
+console.log(findFilmsOfTarantino);
 
-const find = function (arr, callback) {
+const findFilmsOfTarantino2 = function (arr, callback) {
   for (let i = 0; i < arr.length; i += 1) {
     if (callback(arr[i], i, arr)) {
       return arr[i];
@@ -97,31 +80,76 @@ const find = function (arr, callback) {
 };
 
 console.log(
-  find(typeOfGrape4, function (item) {
-    return item === "Grillolo";
+  findFilmsOfTarantino2(filmsOfTarantino, function (item) {
+    // return item.year === 2003;
+    // return item.film === "Django Unchained";
+    return item.year === 2019;
   }),
 );
 
-// // findIndex
-// const num = [22, 33, 44, 55, 66, 77];
-// const findIndexOfNum = num.findIndex(function (item) {
-//   if (item > 68) return true;
-//   // if (item > 680) return true;
-// });
-//
-// console.log(findIndexOfNum);
-//
-// const findIndexOfGrape2 = function (arr, callback) {
-//   for (let i = 0; i < arr.length; i += 1) {
-//     if (callback(arr[i], i, arr)) {
-//       return i;
-//     }
-//   }
-//   return -1;
-// };
-//
-// console.log(
-//   findIndexOfGrape2(num, function (item) {
-//     if (item > 48) return true;
-//   }),
-// );
+// findIndex
+const findIndexFilmsOfTarantino = filmsOfTarantino.findIndex(function (item) {
+  if (item.year === 2012) return true;
+});
+
+console.log(findIndexFilmsOfTarantino);
+
+const findIndexFilmsOfTarantino2 = function (arr, callback) {
+  for (let i = 0; i < arr.length; i += 1) {
+    if (callback(arr[i], i, arr)) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+console.log(
+  findIndexFilmsOfTarantino2(filmsOfTarantino, function (item) {
+    // if (item.year > 2003) return true;
+    if (item.year > 2015) return true;
+  }),
+);
+
+// some
+const someFilmsOfTarantino = filmsOfTarantino.some(function (item) {
+  return item.year === 2004;
+});
+
+console.log(someFilmsOfTarantino);
+
+const someFilmsOfTarantino2 = function (arr, callback) {
+  for (let i = 0; i < arr.length; i += 1) {
+    if (callback(arr[i], i, arr)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+console.log(
+  someFilmsOfTarantino2(filmsOfTarantino, function (item) {
+    return item.year < 2012;
+  }),
+);
+
+// every
+const everyFilmsOfTarantino = filmsOfTarantino.every(function (item) {
+  return item.year === 2012;
+});
+
+console.log(everyFilmsOfTarantino);
+
+const everyFilmsOfTarantino2 = function (arr, callback) {
+  for (let i = 0; i < arr.length; i += 1) {
+    if (callback(arr[i], i, arr)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+console.log(
+  everyFilmsOfTarantino2(filmsOfTarantino, function (item) {
+    return item.year <= 2012;
+  }),
+);
