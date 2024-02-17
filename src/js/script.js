@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // реалізація методу
 
 const userAge = +prompt("Age, please?");
@@ -9,8 +11,8 @@ const user = {
 
 const checkAge = function (age) {
   return age >= 21
-    ? "Congratulations! You can buy it!"
-    : "Sorry! Your age is a TDZ!";
+    ? `Congratulations, ${this.name}! You can buy it!`
+    : `Sorry! Your age ${this.age} is a TDZ!`;
 };
 
 console.log(checkAge.apply(user, [userAge]));
