@@ -1,20 +1,14 @@
 const parseJSONToObj = (jsonStr) => {
   try {
-    const parsedObject = JSON.parse(jsonStr);
-    return parsedObject;
+    const parsedObj = JSON.parse(jsonStr);
+    return parsedObj;
   } catch (error) {
-    console.error("Error parsing JSON:", error.message);
-    // return null; // Return null or handle the error as needed
+    console.error("Invalid JSON string: ", error.message);
+    return null; // Return null or handle the error as needed
   }
 };
 
-// Приклад використання:
-const jsonStr = '{"name": "John", "age": , "city": "New York"}';
-console.log(parseJSONToObj(jsonStr));
-// const parsedResult = parseJSONToObj(jsonStr);
+const jsonStr = '{"last name": "Bond", "name": "James Bond", "city": "Tokyo"}';
+console.log(jsonStr);
 
-// if (parsedResult) {
-//   console.log("Parsed object:", parsedResult);
-// } else {
-//   console.log("Invalid JSON input.");
-// }
+console.log(parseJSONToObj(jsonStr));
