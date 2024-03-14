@@ -1,3 +1,30 @@
 * {
     box-sizing: border-box;
 }
+
+h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+}
+
+.form-main {
+    width: 550px;
+    margin: 0 auto;
+    padding: 35px;
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(202, 109, 79, 0.3);
+    border-radius: 15px;
+}
+
+.form-box {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    color: #68118e;
+}

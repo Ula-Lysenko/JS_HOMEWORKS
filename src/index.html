@@ -6,7 +6,38 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-<img src="./img/flat.jpg" width="1200" alt="cozy apart">
+<!--<img src="./img/flat.jpg" alt="cozy apart">-->
+
+<h1>Fill out of the form</h1>
+<form class="form-main">
+    <label class="form-box" for="name">Your name:
+    <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="big brother"
+    ></label>
+
+    <label class="form-box" for="email">Your email:
+    <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="1984@gmail.com"
+    ></label>
+
+    <label class="form-box" for="password">Your password:
+    <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="*******"
+    ></label>
+
+    <button type="submit">Registration</button>
+    <p id="message"></p>
+</form>
+
 
 <script src="./js/script.js"></script>
 </body>
