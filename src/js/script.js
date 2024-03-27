@@ -1,5 +1,5 @@
 /* eslint-disable */
-const DATA_KEY = "todoForm";
+const DATA_KEY = "todoData";
 
 (function () {
   const form = document.querySelector("[data-form]");
@@ -32,25 +32,18 @@ const DATA_KEY = "todoForm";
   };
 
   const saveTodoForm = (item) => {
-    if (localStorage[DATA_KEY]) {
-      const todoForm = JSON.parse(localStorage[DATA_KEY]);
-      todoForm.push(item);
-      localStorage.setItem(DATA_KEY, JSON.stringify(todoForm));
-      return todoForm;
-    }
-    const todoForm = [item];
+    const todoForm = JSON.parse(localStorage.getItem(DATA_KEY)) || [];
+    todoForm.push(item);
     localStorage.setItem(DATA_KEY, JSON.stringify(todoForm));
+
     return todoForm;
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    if (!localStorage[DATA_KEY]) return;
     const todoForm = JSON.parse(localStorage.getItem(DATA_KEY)) || [];
-    console.log(todoForm);
-    // for (const key of todoForm) {
-    //   appendTodoListBox(key);
-    // }
-    // todoForm.forEach((item) => appendTodoListBox(item));
+    for (const key of todoForm) {
+      appendTodoListBox(createTodoListBox(key));
+    }
   });
 
   form.addEventListener("submit", (event) => {
@@ -64,10 +57,7 @@ const DATA_KEY = "todoForm";
       data[input.name] = input.value;
     }
 
-    console.log(data);
-
     const todoListBox = createTodoListBox(data);
-    console.log(todoListBox);
 
     saveTodoForm(data);
 
